@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kshrd-10th-generation-ite-basic-co-ingress
+  namespace: kshrd-10th-generation-ite
+spec:
+  tls:
+    - hosts:
+        - nang-auto.site
+      secretName: nang-auto-site-cert
+  rules:
+    - host: nang-auto.site
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: kshrd-10th-generation-ite-basic-co-svc
+                port:
+                  number: 3000
