@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kshrd-10th-generation-ite-basic-co
+spec:
+  destination:
+    name: ''
+    namespace: kshrd-10th-generation-ite
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: app
+    repoURL: 'https://github.com/KSGA-Autopilot/kshrd-10th-generation-ite-basic-co-cd'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+project: default
+source:
+  repoURL: 'https://github.com/KSGA-Autopilot/kshrd-10th-generation-ite-basic-co-cd'
+  path: app
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: kshrd-10th-generation-ite
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
