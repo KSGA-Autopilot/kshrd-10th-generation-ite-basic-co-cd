@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kshrd-10th-generation-ite-basic-co-deployment
+  labels:
+    app: kshrd-10th-generation-ite-basic-co
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kshrd-10th-generation-ite-basic-co
+  template:
+    metadata:
+      labels:
+        app: kshrd-10th-generation-ite-basic-co
+    spec:
+      containers:
+        - name: kshrd-10th-generation-ite-basic-co
+          image: kshrdautopilot/kshrd-10th-generation-ite-basic-co
+          ports:
+            - containerPort: 3000
